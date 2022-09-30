@@ -1,2 +1,2 @@
 # to-do-task-manager
-A small to-do task manager for the web.
+A small to-do task manager for the web. (WIP)
