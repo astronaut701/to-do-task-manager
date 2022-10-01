@@ -1,6 +1,19 @@
 // Grab the input field for a varable
 var input = document.getElementById("addtask-input");
 
+//Setup date and time
+// For today's date
+Date.prototype.today = function () { 
+    return ((this.getMonth() < 10)?"0":"") + this.getMonth() +"/"+(((this.getDate()+1) < 10)?"0":"") + (this.getDate()+1) +"/"+ this.getFullYear();
+}
+
+// For the current time
+Date.prototype.timeNow = function () {
+     return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
+}
+//Pack both of these into a varable for later use
+var datetime = new Date().today() + " - " + new Date().timeNow();
+
 // Fire up a function for our keyboard input
 input.addEventListener("keypress", function(event) {
   // Detect the "Enter" key being pressed
@@ -19,12 +32,13 @@ document.querySelector('#push').onclick = function(){
         alert("Please enter the task's name!")
     }
 
-    //If it has text, let's add it to the page!
+    //If it has text, let's add it to the page! (And add the date and time it was added here too!)
     else{
         document.querySelector('#tasks').innerHTML += `
             <div class="task">
                 <span id="taskname">
-                    ${document.querySelector('#addtask input').value}
+                    <h3>${document.querySelector('#addtask input').value}</h3>
+                    <p>Date and time added | ${datetime}</p>
                 </span>
                 <button class="delete">
                     <h2>X</h2>
