@@ -1,8 +1,8 @@
 // Grab the input field for a varable
 var input = document.getElementById("addtask-input");
 
-//Setup date and time
-// For today's date
+//Setup date
+// For today's date;
 Date.prototype.today = function () { 
     return ((this.getMonth() < 10)?"0":"") + this.getMonth() +"/"+(((this.getDate()+1) < 10)?"0":"") + (this.getDate()+1) +"/"+ this.getFullYear();
 }
@@ -11,7 +11,7 @@ Date.prototype.today = function () {
 Date.prototype.timeNow = function () {
      return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
 }
-//Pack both of these into a varable for later use
+
 var datetime = new Date().today() + " - " + new Date().timeNow();
 
 // Fire up a function for our keyboard input
@@ -32,7 +32,7 @@ document.querySelector('#push').onclick = function(){
         alert("Please enter the task's name!")
     }
 
-    //If it has text, let's add it to the page! (And add the date and time it was added here too!)
+    //If it has text, let's add it to the page!
     else{
         document.querySelector('#tasks').innerHTML += `
             <div class="task">
@@ -54,4 +54,23 @@ document.querySelector('#push').onclick = function(){
             }
         }
     }
+}
+
+//Auto-scale text boxes.. (https://stackoverflow.com/questions/454202/creating-a-textarea-with-auto-resize)
+//TODO - Needs adjustment
+const txHeight = 20;
+const tx = document.getElementsByTagName("textarea");
+
+for (let i = 0; i < tx.length; i++) {
+  if (tx[i].value == '') {
+    tx[i].setAttribute("style", "height:" + txHeight + "px;overflow-y:hidden;width:90%;");
+  } else {
+    tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;width:90%;");
+  }
+  tx[i].addEventListener("input", OnInput, false);
+}
+
+function OnInput(e) {
+  this.style.height = 0;
+  this.style.height = (this.scrollHeight) + "px";
 }
