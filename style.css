@@ -103,7 +103,7 @@ textarea input:focus{
     height: 50px;
     margin-bottom: 8px;
     padding: 5px 10px;
-    display: flex;
+    display: inline-flex;
 
 }
 .task span{
