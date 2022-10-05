@@ -9,7 +9,7 @@ A small to-do task manager for the web. Currently a work-in-progress...
 # What's currently needed (in list of importance)
 
 * Persistance
-* Work out a text limit or truncate text somehow
+* Work out a text limit
 * Calendar
 
 Sidenote - This is a to-do list for a to-do list.. xD
