@@ -12,5 +12,6 @@ A small to-do task manager for the web. Currently a work-in-progress...
 * Work out a text limit
 * Calendar
 * Clear all tasks (w/ confirmation button)
+* Add party mode
 
 Sidenote - This is a to-do list for a to-do list.. xD
